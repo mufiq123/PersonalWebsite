@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap'); /* Importing Google Font */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Fallback background color */
+    color: #fff; /* Set text color to white for readability */
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/stars.jpeg') no-repeat center center fixed; /* Add starry background */
+    background-size: cover; /* Cover the entire page */
+    opacity: 0.5; /* Set opacity to 50% */
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: transparent; /* Dark gray background for the header */
+}
+
+header .left, header .right {
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif; /* Set a different font for the intro statement */
+
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-left: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Hide the menu */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 10px;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show the menu when active */
+    }
+
+    .hamburger {
+        display: flex; /* Show the hamburger menu */
+    }
+}
+
+.button {
+    text-decoration: none;
+    color: #fff; /* White text for buttons */
+    padding: 10px 15px;
+    border: 2px solid #fff; /* White border for buttons */
+    border-radius: 4px;
+    margin: 0 10px; /* Add spacing around buttons */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.button:hover {
+    background-color: #fff; /* White background on hover */
+    color: #000; /* Black text on hover */
+}
+
+main {
+    padding: 20px;
+    height: calc(100vh - 60px); /* Full height minus header */
+    display: flex;
+    align-items: start; /* Align items to the top */
+    justify-content: center;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70vh; /* Set height to top third of the page */
+}
+
+.intro-text {
+    text-align: center; /* Center align text and buttons */
+    margin-right: 20px;
+    max-width: 500px; /* Set a maximum width for the text */
+}
+
+.intro h1 {
+    font-size: 6em; /* Default text size */
+    margin-bottom: 20px;
+}
+
+.intro-statement {
+    font-size: 1em; /* Adjust the size of the introductory statement */
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif; /* Set a different font for the intro statement */
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Add space between buttons */
+    padding-top: 10px;
+
+}
+
+.social-button img {
+    width: 90px; /* Default size of logo buttons */
+    height: 90px; /* Default size of logo buttons */
+    border-radius: 50%;
+    border: 2px solid #fff; /* Add a thin white border */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-button img:hover {
+    transform: scale(1.2); /* Slightly enlarge the image on hover */
+}
+
+.intro-image img {
+    max-width: 500px; /* Default size of image */
+    max-height: 500px; /* Default size of image */
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-left: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .intro h1 {
+        font-size: 5em;
+    }
+    .intro-statement {
+        font-size: 1.3em;
+    }
+    .social-button img {
+        width: 80px;
+        height: 80px;
+    }
+    .intro-image img {
+        max-width: 350px;
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .intro h1 {
+        font-size: 4em;
+    }
+    .intro-statement {
+        font-size: 1.1em;
+    }
+    .social-button img {
+        width: 70px;
+        height: 70px;
+    }
+    .intro-image img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 2.5em;
+    }
+    .intro-statement {
+        font-size: 1em;
+    }
+    .social-button img {
+        width: 60px;
+        height: 60px;
+    }
+    .intro-image img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .intro {
+        flex-direction: column; /* Stack items vertically */
+        height: auto; /* Allow height to adjust */
+        margin-top: 35px;
+    }
+    .intro h1 {
+        font-size: 2em;
+    }
+    .intro-statement {
+        font-size: 0.9em;
+    }
+    .social-button img {
+        width: 50px;
+        height: 50px;
+    }
+    .intro-image img {
+        visibility: hidden;
+        max-width: 200px;
+        max-height: 200px;
+        margin-left: 0; /* Remove left margin */
+        margin-top: 20px; /* Add top margin for spacing */
+    }
+}
+
+
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.project-card {
+    background-color: rgba(102, 34, 212, 0.1);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 75px;
+    max-width: 450px;
+    max-height: 300px;
+    
+}
+
+.project-card h2 {
+    margin-top: -45px;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.project-card p {
+    margin: 10px 0;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.project-link:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.project-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    
+}
+
+.project-images img {
+    width: 80px;
+    height: 80px;
+    border-radius: 70px;
+    object-fit: cover;
+    border: 2px solid #fff; 
+    background-color: black;
+}
+
+.proj_description{
+
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1425px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    body {
+        overflow: auto;
+    }
+    
+}
+
+@media (max-width: 945px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+        gap: 75px;
+    }
+    .project-card {
+        max-width: 100%;
+    }
+    body {
+        overflow: auto;
+    }
+    .project-link{
+        margin-top: 0px;
+    }
+}
+
+.contact-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.contact-container h2 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.form-group label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: 'Open Sans', sans-serif; /* Set a different font for the intro statement */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-family: 'Open Sans', sans-serif; /* Set a different font for the intro statement */
+    color: #fff;
+}
+
+.submit-button {
+    font-family: 'Open Sans', sans-serif; /* Set a different font for the intro statement */
+    padding: 10px 15px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    background-color: transparent;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Open Sans', sans-serif; /* Set a different font for the intro statement */
+
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-container {
+        max-width: 100%;
+    }
+}
+
+.experience-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.experience-section {
+    display: flex;
+    align-items: center;
+}
+
+.experience-image {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-right: 50px;
+    background-color: white;
+    margin-top: -10px;
+}
+
+.experience-details {
+    flex: 1;
+}
+
+.experience-details h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.experience-details p {
+    margin: 5px 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 928px) {
+    .experience-section {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 45px;
+    }
+
+    .experience-image {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .experience-details {
+        text-align: left;
+    }
+}
